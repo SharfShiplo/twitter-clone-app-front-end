@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Title</title>
+    <title>Twitter clone</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/style.css">
-    <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body>
@@ -23,65 +23,41 @@
                 </li>
             </ul>
         </div>
-        <!-- App Main-conent  -->
+        <!-- App Main-content -->
         <div class="main">
             <div class="tweets-search-container">
-                <form>
-                    <input type="text" class="search-input" placeholder="Search Twitter">
-                    <button class="search-button"><i class="fas fa-search"></i></button>
-                </form>
+                <div class="tweet-searchWrapper">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search Twitter"
+                        onkeyup="onEnter(event)">
+                    <button class="search-button" type="submit" onclick="getTwitterData()"><i
+                            class="fas fa-search"></i></button>
+                </div>
             </div>
             <div class="tweets-lists">
-                <div class="tweet-container">
-                    <div class="tweet-info">
-                        <div class="tweet-infoImage"><img src="images/profile1.jpg" alt="user"></div>
-                        <div class="tweet-infoName">
-                            <h3>William</h3>
-                            <p>@william</p>
-                        </div>
-                    </div>
-                    <div class="tweet-media"><img src="images/tweet.jpg" alt="tweet image"></div>
-                    <div class="tweet-textContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolorum, quae debitis qui,
-                            saepe suscipit dolore eveniet quidem aperiam cum beatae eos voluptatibus deserunt iste
-                            quasi! Error veritatis nulla illum consequuntur. Ullam asperiores aspernatur alias possimus
-                            sunt dignissimos facere, magnam doloremque.</p>
-                        <span>20 hours ago</span>
-                    </div>
+                <div class="tweets-welcome-message">
+                    <h4>Welcome to Twitter!</h4>
+                    <p>Ues the search above to see what's happening around the world.</p>
                 </div>
-                <div class="tweet-container">
-                    <div class="tweet-info">
-                        <div class="tweet-infoImage"><img src="images/profile1.jpg" alt="user"></div>
-                        <div class="tweet-infoName">
-                            <h3>William</h3>
-                            <p>@william</p>
-                        </div>
-                    </div>
-                    <div class="tweet-media"><img src="images/tweet.png" alt="tweet image"></div>
-                    <div class="tweet-textContent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolorum, quae debitis qui,
-                            saepe suscipit dolore eveniet quidem aperiam cum beatae eos voluptatibus deserunt iste
-                            quasi! Error veritatis nulla illum consequuntur. Ullam asperiores aspernatur alias possimus
-                            sunt dignissimos facere, magnam doloremque.</p>
-                        <span>20 hours ago</span>
-                    </div>
-                </div>
-                <div class="tweet-nextButton"><i class="fas fa-arrow-down"></i></div>
             </div>
+            <div class="tweet-nextButton" onclick="onNextPage()"><i class="fas fa-arrow-down"></i></div>
         </div>
         <!-- App Hashtags-content  -->
         <div class="tweets-sidebar-container">
             <div class="tweets-sidebar">
-                <ul class="hashtag-tweets">
-                    <li><a class="trends-title" href="#">Trends for you</a></li>
-                    <li><a href="#">#Codding</a></li>
-                    <li><a href="#">#JavaScript</a></li>
-                    <li><a href="#">#React Js</a></li>
-                    <li><a href="#">#Python</a></li>
-                </ul>
+                <div class="hashtag-tweets">
+                    <h4 class="trends-title" href="#">Trends for you</h4>
+                    <ul>
+                        <li onclick="selectTrend(this)">#Coding</li>
+                        <li onclick="selectTrend(this)">#JavaScript</li>
+                        <li onclick="selectTrend(this)">#React Js</li>
+                        <li onclick="selectTrend(this)">#Python</li>
+                        <li onclick="selectTrend(this)">#Tesla</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
     <script src="js/index.js" async defer></script>
 </body>
 
